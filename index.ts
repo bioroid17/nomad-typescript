@@ -1,10 +1,26 @@
-type SuperPrint = <T, M>(a: T[], b: M) => T;
+// 제네릭을 쓰는 커스텀 타입
+type Player<E> = {
+  name: string;
+  extraInfo: E;
+};
+type NicoExtra = {
+  favFood: string;
+};
+// 제네릭이 커스텀 타입이 될 수 있음
+type NicoPlayer = Player<NicoExtra>;
 
-const superPrint: SuperPrint = (arr) => arr[0];
+const nico: NicoPlayer = {
+  name: "nico",
+  extraInfo: {
+    favFood: "kimchi",
+  },
+};
+const lynn: Player<null> = {
+  name: "lynn",
+  extraInfo: null,
+};
 
-const a = superPrint([1, 2, 3, 4], "x");
-const b = superPrint([true, false, true], 1);
-const c = superPrint(["a", "b", "c"], false);
-const d = superPrint([1, 2, true, false], []);
+// Array 생성 시 제네릭 받을 수 있음
+type A = Array<number>;
 
-// d.toUppercase() // 만약 generic을 쓰지 않고 any를 쓰면 런타임 에러 발생
+let a: A = [1, 2, 3, 4];
