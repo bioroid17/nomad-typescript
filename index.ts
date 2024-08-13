@@ -1,10 +1,16 @@
-let a = "hello";
-let b: boolean = false;
-let c: number[] = [];
-c.push(1);
-
-const player = {
-  name: "nico",
+// alias
+type Name = string;
+type Age = number;
+type Player = {
+  name: Name;
+  age?: Age; // ?: optional
 };
-// '{ name: string; }' 형식에 'hello' 속성이 없습니다.
-player.hello();
+
+// function playerMaker(name: string): Player {
+//   return {
+//     name,
+//   };
+// }
+const playerMaker = (name: string): Player => ({ name });
+const nico = playerMaker("nico");
+nico.age = 12;
