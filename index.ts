@@ -1,19 +1,32 @@
-const numbers: readonly number[] = [1, 2, 3, 4];
-// numbers.push(1) // 'readonly number[]' 형식에 'push' 속성이 없습니다.
+// unknown 타입
+let a: unknown;
+// 타입 확인 필수
+if (typeof a === "number") {
+  let b = a + 1;
+}
+if (typeof a === "string") {
+  a.toUpperCase();
+}
 
-// 튜플
-// const player: [string, number, boolean] = ["nico", 1, true]
+// void 타입: 아무것도 반환하지 않는 함수를 대상으로 사용
+// 굳이 void를 명시할 필요 없음
+function hello(): void {
+  console.log("x");
+}
+const b = hello();
+// b.toUpperCase() // void엔 toUpperCase()가 없으므로 에러
 
-// 튜플 + readonly
-const player: readonly [string, number, boolean] = ["nico", 1, true];
-// player[0] = "hi" // readonly이므로 수정 불가
-
-// undefined, null 타입
-let a: undefined = undefined;
-let b: null = null;
-
-// any 타입
-const c: any[] = [1, 2, 3, 4];
-const d: any = true;
-
-c + d; // 에러 없음 -> TypeScript의 보호를 빠져 나왔기 때문
+// never: 함수가 절대 return 하지 않을 때 사용
+function hello2(): never {
+  throw new Error("xxx");
+}
+// else 부분은 never로, 절대 실행되어선 안 된다.
+function hello3(name: string | number) {
+  if (typeof name === "string") {
+    name;
+  } else if (typeof name === "number") {
+    name;
+  } else {
+    name;
+  }
+}
