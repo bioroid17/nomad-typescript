@@ -1,20 +1,38 @@
-// 인터페이스의 유일한 목적은 객체의 모양 설명이다.
 interface User {
-  name: string;
-}
-interface User {
+  firstName: string;
   lastName: string;
+  sayHi(name: string): string;
+  fullName(): string;
 }
-// 인터페이스의 축적도 가능하다.
-interface User {
+interface Human {
   health: number;
 }
 
-const nico: User = {
-  name: "nico",
-  lastName: "n",
-  health: 10,
-};
+class Player implements User, Human {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public health: number
+  ) {}
+  fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  sayHi(name: string): string {
+    return `Hello ${name}. My name is ${this.fullName()}`;
+  }
+}
 
-// 인터페이스도 상속 가능
-// interface Player extends User {}
+function makeUser(user: User): User {
+  return {
+    firstName: "nico",
+    lastName: "last",
+    fullName: () => "xx",
+    sayHi: (name) => "string",
+  };
+}
+makeUser({
+  firstName: "nico",
+  lastName: "last",
+  fullName: () => "xx",
+  sayHi: (name) => "string",
+});
