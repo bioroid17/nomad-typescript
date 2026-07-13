@@ -1,0 +1,10 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "build",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "es6"
+  }
+}
