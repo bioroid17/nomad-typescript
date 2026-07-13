@@ -5,6 +5,7 @@
     "outDir": "build",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "target": "es6"
+    "target": "es6",
+    "lib": ["ES6", "DOM"]
   }
 }
