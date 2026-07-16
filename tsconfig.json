@@ -6,6 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "target": "es6",
-    "lib": ["ES6", "DOM"]
+    "lib": ["ES6", "DOM"],
+    "allowJs": true
   }
 }
